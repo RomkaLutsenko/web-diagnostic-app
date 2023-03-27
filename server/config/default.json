@@ -1,0 +1,5 @@
+{
+  "serverPort": 5000,
+  "dbUrl": "mongodb+srv://romanlutsenko:hjvbxhjvbx1@romanlutsenkodbs.0tu5tvq.mongodb.net/?retryWrites=true&w=majority",
+  "secretKey": "mern-secret-key"
+}

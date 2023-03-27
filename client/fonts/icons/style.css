@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'icons';
+  src:  url('fonts/icons.eot?d147ym');
+  src:  url('fonts/icons.eot?d147ym#iefix') format('embedded-opentype'),
+    url('fonts/icons.ttf?d147ym') format('truetype'),
+    url('fonts/icons.woff?d147ym') format('woff'),
+    url('fonts/icons.svg?d147ym#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic_water:before {
+  content: "\e907";
+}
+.ic_wind:before {
+  content: "\e906";
+}
+.ic_arrow:before {
+  content: "\e900";
+}
+.ic_humidity:before {
+  content: "\e901";
+}
+.ic_lights:before {
+  content: "\e902";
+}
+.ic_power1:before {
+  content: "\e903";
+}
+.ic_sun:before {
+  content: "\e904";
+}
+.ic_temperature:before {
+  content: "\e905";
+}
+.ic_wrench:before {
+  content: "\e991";
+}
+.ic_settings:before {
+  content: "\e992";
+}
+.ic_cogs:before {
+  content: "\e995";
+}
+.ic_hammer:before {
+  content: "\e996";
+}
+.ic_stats-dots:before {
+  content: "\e99b";
+}
+.ic_stats-bars:before {
+  content: "\e99c";
+}
+.ic_rocket:before {
+  content: "\e9a5";
+}
+.ic_lab:before {
+  content: "\e9aa";
+}
+.ic_power:before {
+  content: "\e9b5";
+}

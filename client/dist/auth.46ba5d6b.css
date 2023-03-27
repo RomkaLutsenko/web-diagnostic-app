@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: #fff;
+  border: none;
+}
+
+.navbar {
+  height: 90px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.navbar__container {
+  width: 824px;
+  align-items: center;
+  display: flex;
+}
+
+.navbar__logo {
+  width: 80px;
+  height: 80px;
+}
+
+.navbar__header {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.navbar__login {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.navbar__logout {
+  display: none;
+}
+
+.navbar__logout.active {
+  display: flex;
+}
+
+main {
+  flex-direction: column;
+  display: flex;
+}
+
+main input {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #7e78ee;
+  margin: 3px 20px;
+  padding: 5px;
+}
+
+main input:focus {
+  outline: none;
+}
+
+main button {
+  background-color: #7e78ee;
+  border: none;
+  border-radius: 8px;
+  align-self: flex-end;
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-weight: 700;
+}
+
+.registration {
+  display: none;
+}
+
+.registration.active {
+  width: 350px;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+}
+
+.registration__header {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.login {
+  display: none;
+}
+
+.login.active {
+  width: 350px;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+}
+
+.login__header {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=auth.46ba5d6b.css.map */

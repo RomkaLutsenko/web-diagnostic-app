@@ -1,0 +1,384 @@
+@import url('./fonts/icons/style.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+    --gradient: linear-gradient( to right, #bdadec, #7e78ee);
+    --grey: #f0f0f0;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Rubik', -serif;
+    background-color: #e0e5eb;
+   /* height: 100%;
+    min-width: 320px;*/
+}
+.wrapper {
+    padding: 20px 30px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+.footer {
+    text-align: center;
+    justify-content: center;
+}
+.page__content {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.3);
+    height: 700px;
+    margin: 0px 0px 30px 0px;
+}
+button {
+    border: none;
+    background-color: white;
+}
+header button {
+    border: none;
+    background-color: #7e78ee;
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+/* Header ======================================================================================== */
+.navbar {
+    display: flex;
+    height: 90px;
+    justify-content: center;
+    width: 100%;
+}
+.navbar__container {
+    width: 824px;
+    display: flex;
+    align-items: center;
+}
+.navbar__logo {
+    width: 80px;
+    height: 80px;
+}
+.navbar__header {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+.navbar__login {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+
+/* Навигация ======================================================================================== */
+.page__menu {
+    border-radius: 20px;
+    max-height: 100px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.menu__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu__item {
+    grid-template-rows: 70px 30px;
+    min-width: 140px;
+    cursor: pointer;
+    display: grid;
+    align-content: center;
+    font-size: 18px;
+    text-align: center;
+    background-color: var(--grey);
+    border-radius: 15px;
+    margin: 0px 20px;
+}
+.menu__item.selected {
+    background: var(--gradient);
+    color: white;
+}
+.menu__item i {
+    font-size: 3em;
+    align-self: center;
+    padding: 0px 20px;
+}
+
+
+
+/* Страница настроек цеха ============================================================================ */
+.settings {
+    display: none;
+}
+.settings__tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 80px;
+    grid-gap: 60px;
+}
+.tab {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    font-size: 18px;
+    background-color: var(--grey);
+    border-radius: 15px;
+}
+.tab.selected {
+    background: var(--gradient);
+    color: white;
+}
+.tab i {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 3em;
+    align-self: center;
+    padding: 0px 20px;
+}
+
+
+/* =================================================================================================== */
+.settings__screens {
+}
+.settings__screen {
+    display: none;
+}
+.settings__screen.selected {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.settings__screen-title {
+    text-align: center;
+    margin: 30px 0;
+    font-weight: 300;
+}
+.settings__screen-icon {
+    text-align: center;
+    font-size: 30px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Кнопка регулировки ============================================================================ */
+.electricity-button {
+    cursor: pointer;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+.electricity-button__info {
+    position: relative;
+    font-size: 26px;
+    width: 75%;
+    height: 75%;
+    border-radius: 75%;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.electricity-button__info::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top: 4%;
+    bottom: 4%;
+    border-radius: 100%;
+    opacity: 0.3;
+    border: 1px solid #000;
+}
+.dots-box {
+    transform: rotate(5deg);
+    transform-origin: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.dots,
+.line,
+.line-active,
+.round,
+.separate-lines,
+.separate-dots {
+    fill:transparent;
+    stroke: var(--grey);
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-dasharray: 0 21;
+    transition: all 0.1s ease-in-out;
+}
+.line,
+.line-active,
+.round {
+    stroke-width: 1px;
+    stroke-dasharray: 276 276;
+    transform-origin: center;
+    transform: rotate(48deg);
+}
+.line-active {
+    stroke: black;
+    stroke-dasharray: 54 276; /* от 54 до 276 */
+    transition: all 0.1s ease-in-out;
+}
+.round {
+    stroke-width: 6px;
+    stroke-dasharray: 0 276;
+    transform: rotate(-240deg); /* от -240 до 48 */
+}
+.separate-lines,
+.separate-dots {
+    stroke: white;
+    transform-origin: center;
+    transform: rotate(60deg);
+}
+.separate-dots {
+    stroke-dasharray: 40 313;
+}
+.separate-lines {
+    transform: rotate(49deg);
+    stroke-dasharray: 53 276;
+}
+
+
+/* Power ========================================================================================= */
+.power  {
+    cursor: pointer;
+    background: var(--gradient);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 26px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 2px;
+    margin: 0 auto ;
+}
+.power.off {
+    background: var(--grey);
+}
+.power-label {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.save-button {
+    cursor: pointer;
+    background: var(--gradient);
+    color: white;
+    width: 250px;
+    margin: 15px auto 0;
+    border-radius: 100px;
+    text-align: center;
+    padding: 16px;
+}
+
+/* Slider ================================================================================= */
+.slider {
+    cursor: pointer;
+    width: 100px;
+    height: 250px;
+    margin: 0 auto;
+    background-color: var(--grey);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+.slider__progress {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: var(--gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    min-height: 30px;
+    height: 45%;
+    margin-top: auto;
+}
+.slider__progress span {
+    pointer-events: none;
+}
+
+/* switch ======================================================================================= */
+.switch {
+    cursor: pointer;
+    width: 75px;
+    height: 38px;
+    border-radius: 50px;
+    background: var(--grey);
+    margin: 40px auto 0;
+    position: relative;
+}
+.switch div {
+    position: absolute;
+    left: 52%;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 28px;
+    background: var(--gradient);
+    transition: all 0.3s ease-in-out;
+}
+.switch.off div {
+    left: 0;
+    background: #666;
+}
+
+/* Информация о работе ============================================================================ */
+.work {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 100%;
+    height: 620px;
+}
+.work__main {
+    height: 50%;
+    border-bottom: solid #7e78ee 2px;
+    display: flex;
+    margin-bottom: 20px;
+}
+.work__time {
+    width: 50%;
+}
+.work__counts {
+    width: 50%;
+}
+
+.item {
+    padding-bottom: 20px;
+}
+
+.work__costs {
+    height: 50%;
+}
+
+
+/* Статистика ============================================================================ */
+.chart {
+    position: relative;
+    width: 40vw;
+    height: 30vh;
+    padding-top: 20px;
+}

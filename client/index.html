@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <!-- Статистика:
+        asdКоличество изделий вышедших с участка
+        asdГрафик расхода циклопентан или электричества или воды.
+        asdПредоставим в табличном виде. + коэф. рабочего времени.
+        asdПочасовой расход за сутки, или за выбранный интервал.
+    -->
+    <!-- Работа:
+        asdВремя работы линии
+        asdВремя простоя
+        asdЗатраты
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Web диагностика</title>
+</head>
+<body>
+        <header>
+            <div class="navbar">
+                <div class="navbar__container">
+                    <img class="navbar__logo" src="../client/assets/img/navbar-logo.png" alt="">
+                    <div class="navbar__header">Web диагностика технологического оборудования</div>
+                    <a href="./auth.html" class="navbar__logout" id="logout">Выход</a>
+                </div>
+            </div>
+        </header>
+        <div class="wrapper">
+            <main class="page">
+                <nav class="page__menu">
+                    <div id="menu__list" class="menu__list">
+                        <div data-workshop="wrench" class="menu__item selected">
+                            <i class="ic_wrench"></i><span>Цех 1</span>
+                        </div>
+                        <div data-workshop="cogs" class="menu__item">
+                            <i class="ic_cogs" data-workshop="cogs"></i><span>Цех 2</span>
+                        </div>
+                        <div data-workshop="hammer" class="menu__item">
+                            <i class="ic_hammer" data-workshop="hammer"></i><span>Цех 3</span>
+                        </div>
+                        <div data-workshop="rocket" class="menu__item">
+                            <i class="ic_rocket" data-workshop="rocket"></i><span>Цех 4</span>
+                        </div>
+                        <div data-workshop="lab" class="menu__item">
+                            <i class="ic_lab" data-workshop="lab"></i><span>Цех 5</span>
+                        </div>
+                    </div>
+                </nav>
+                <section class="page__content">
+                    <div id="settings" class="settings">
+                        <div id="settings-tabs" class="settings__tabs">
+                            <div data-type="statistics" class="tab selected">
+                                <i class="ic_stats-bars"></i>
+                                <span>Статистика</span>
+                            </div>
+                            <div data-type="usage" class="tab">
+                                <i class="ic_power"></i>
+                                <span>Потребление</span>
+                            </div>
+                            <div data-type="work" class="tab">
+                                <i class="ic_hammer"></i>
+                                <span>Работа</span>
+                            </div>
+                        </div>
+                        <div id="settings-panels" class="settings__screens">
+                            <div data-type="statistics" class="settings__screen">
+                                <div class="chart">
+                                    <canvas id="chart" width="600px" height="300px"></canvas>
+                                </div>
+                                <div class="chart">
+                                    <canvas id="chart-2" width="600px" height="300px"></canvas>
+                                </div>
+                                <div class="chart">
+                                    <canvas id="chart-3" width="600px" height="300px"></canvas>
+                                </div>
+                            </div>
+                            <div data-type="usage" class="settings__screen ">
+                                <div data-type="water" >
+                                    <div class="settings__screen-title">Вода</div>
+                                    <div class="settings__screen-icon">
+                                        <i class="ic_water"></i>
+                                    </div>
+                                    <div class="slider">
+                                        <div id="water-slider" class="slider__progress">
+                                            <span>45</span>%
+                                        </div>
+                                    </div>
+                                    <div id="water-power" class="switch">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div data-type="steam">
+                                    <div class="settings__screen-title">Пар</div>
+                                    <div class="settings__screen-icon">
+                                        <i class="ic_humidity"></i>
+                                    </div>
+                                    <div class="slider">
+                                        <div id="steam-slider" class="slider__progress">
+                                            <span></span>%
+                                        </div>
+                                    </div>
+                                    <div id="steam-power" class="switch">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div data-type="air" >
+                                    <div class="settings__screen-title">Сжатый воздух</div>
+                                    <div class="settings__screen-icon">
+                                        <i class="ic_wind"></i>
+                                    </div>
+                                    <div class="slider">
+                                        <div id="air-slider" class="slider__progress">
+                                            <span>45</span>%
+                                        </div>
+                                    </div>
+                                    <div id="air-power" class="switch">
+                                        <div></div>
+                                    </div>
+                                </div>
+                                <div data-type="electricity" >
+                                    <div class="settings__screen-title">Электроэнергия</div>
+                                    <div id="electricity-button" class="electricity-button">
+                                        <svg class="dots-box" viewBox="0 0 103 103">
+                                            <circle class="dots" r="50" cx="50%" cy="50%"></circle>
+                                            <circle class="line" r="44" cx="50%" cy="50%"></circle>
+                                            <circle id="electricity-line" class="line-active" r="44" cx="50%" cy="50%"></circle>
+                                            <circle class="separate-lines" r="44" cx="50%" cy="50%"></circle>
+                                            <circle id="electricity-round" class="round" r="44" cx="50%" cy="50%"></circle>
+                                            <circle class="separate-dots" r="50" cx="50%" cy="50%"></circle>
+                                        </svg>
+                                        <div class="electricity-button__info">
+                                            <span id="electricity">0</span>
+                                            <span>W</span>
+                                        </div>
+                                    </div>
+                                    <div id="power" class="power">
+                                        <i class="ic_power1"></i>
+                                    </div>
+                                    <div class="power-label">Нажмите, чтобы выключить</div>
+                                    <div id="save-electricity" class="save-button">Установить температуру</div>
+                                </div>
+                            </div>
+                            <div data-type="work" class="settings__screen selected">
+                                <div class="work">
+                                    <div class="work__main">
+                                        <div class="work__time">
+                                            <div class="wtime item">Время работы: <span id="wtime"></span></div>
+                                            <div class="dtime item">Время простоя: <span id="dtime"></span></div>
+                                        </div>
+                                        <div class="work__counts item">Количество изделий: <span id="items-count"></span></div>
+                                    </div>
+                                    <div class="work__costs">
+                                        <div class="costs__item item">Затраты циклопентан: <span id="cyclo-costs"></span></div>
+                                        <div class="costs__item item">Затраты электричества: <span id="electricity-costs"></span></div>
+                                        <div class="costs__item item">Затраты воды: <span id="water-costs"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer">
+                Здесь могут быть важные контакты
+            </footer>
+        </div>
+<script type="module" src="script.js"></script>
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"
+        integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+</body>
+</html>
